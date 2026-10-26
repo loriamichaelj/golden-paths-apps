@@ -1,0 +1,17 @@
+apiVersion: platform.example.com/v1
+kind: GoldenPath
+metadata:
+  name: golden
+  owner: team-platform
+spec:
+  archetype: single-api
+  cloud: aws
+  tier: silver
+  size: S
+  cost_profile: balanced
+  arch: arm64
+  data_class: internal   # raise to confidential if it starts storing user tokens
+  network: internal-only
+  integrations: [secrets]
+  environments: [dev, stage, prod]
+  lifecycle: persistent
