@@ -1,10 +1,3 @@
 # apps
 
-Apps on golden paths, one folder each. Every app has a contract (`golden-path.yaml`), an OpenTofu root module in `infra/` that calls a path from `platform`, and its code in `src/`.
-
-| App | Path | Cloud | Tier | Environments |
-| --- | --- | --- | --- | --- |
-| `golden` | single-api | AWS | silver | dev, stage, prod |
-| `notifier` | event-driven | AWS | silver | dev, stage, prod |
-
-Pipelines use the components from the `golden-paths-devops` repo.
+Apps holds the golden-path apps the platform runs for itself: `golden`, the Golden Path API, and `notifier`, the Slack notifier. Each app folder has a contract (`golden-path.yaml`), an OpenTofu root module under `infra/` that calls its path with per-environment settings, and the application code. Check any contract with `gold validate <app>/golden-path.yaml`, and pipelines take their jobs from the pipeline components repository.
